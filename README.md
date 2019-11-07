@@ -1,58 +1,59 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Challenge Template
+# Harry Potter API
 
-Use this template to structure your READMEs for diagnostics.
-
-Be sure to include a recent [`LICENSE`](LICENSE) and Markdown linter
-configuration ([`.remarkrc`](.remarkrc)). Also, include an appropriate
-`.gitignore`; these are usually found in specific technology templates, for
-example [js-template](https://www.github.com/ga-wdi-boston/js-template).
+Build an API of hogwarts houses and their members!
 
 ## Prerequisites
 
--   Topics with which developers should be familiar with.
--   Prerequisites are "just-in-time", so if I have a prerequisite that mentions
-    Sass, I would **not** need to include CSS as a prerequisite.
--   [Links to previous materials](https://www.github.com/ga-wdi-boston/example)
-    are often useful.
--   In a challenge, it is useful to link to reference material, such as talk
-    repositories.
+- Node
+- MongoDB and Mongoose
+- Express
 
 ## Instructions
 
-1.  Fork and clone this repository.
-1.  Change into the new directory.
-1.  Install dependencies.
-1.  Create and checkout a new branch to work on.
-1.  Fulfill the listed requirements.
+1. Fork and clone this repository.
+1. Change into the new directory.
+1. Install dependencies.
+1. Fulfill the listed requirements.
 
-Starter code is available in [`lib/challenge.js`](lib/challenge.js). A pull
-request is not required, but it is necessary if you want a code review.
-
-You may wish to refer to [FAQs](https://github.com/ga-wdi-boston/meta/wiki/)
-related to [forking,
-cloning](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone).
+Complete your work inside of the [`lib/`](lib/) directory. Unless otherwise
+specified by an instructor, your submission is due by the time on your cohort
+calendar.
 
 ## Requirements
 
-Describe behavioral requirements as you'll be using them in tests. That is,
-list requirements in language that describes how the written code will be used,
-not how it will be written, with the exception of constraints you may wish to
-place on implementation. It's a good idea to include the below paragraph
-verbatim.
+This lab is divided into two parts. In the first part, you will set up your
+database and seed it with the JSON data provided in the `db/` directory. Once
+that is finished, for the second part of this lab, you'll build out an API that
+serves the seeded data from your database.
 
-You should be running `grunt nag` before diagnosing any bugs, since it finds
-some of the most common sources of errors. After `grunt nag` passes, you should
-run `grunt test` to run the included tests. Tests will tell you whether of not
-you've met these requirements.
+### Part 1: Seeding
 
-## Bonus
+We've provided you with two sets of JSON data:
+[`houses.json`](./lib/db/houses.json) and
+[`characters.json`](./lib/db/characters.json). The `houses` data contains a
+`member` property that is an array of ObjectIDs matching objects in the
+`characters` data (the `_id` property).
 
-Bonuses are described after the requirements, if included. They should be worked
-on **only after** passing requirements.
+Define a model to represent the houses inside of `houses.json` with a
+subdocument model to represent the characters in `characters.json`.
 
-Sometimes, we ask questions that promote thinking critically about code.
+Once your models are defined, write a seed file that takes the data in
+`houses.json` and `characters.json` and seeds it into the database.
+
+### Part 2: API
+
+Your database is now all set up, so it's time to build an API around it. Your
+API will need the following routes:
+
+1. A root route (`'/'`) that redirects to the houses route.
+1. A houses list route (`'/house'`) that returns a JSON array of all the houses
+   in the database.
+1. A house detail route (`'/house/5a05e2b252f721a3cf2ea33f'`) that returns the
+   document for the house in the url parameter.
+1. A house create route (`'/house'`) that a user could send a `POST` request to
+   in order to create a new house.
 
 ## [License](LICENSE)
 
