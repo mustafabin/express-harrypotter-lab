@@ -55,6 +55,29 @@ API will need the following routes:
 1. A house create route (`'/house'`) that a user could send a `POST` request to
    in order to create a new house.
 
+## Bonus
+
+### Query Strings
+
+Implement [query strings](https://expressjs.com/en/4x/api.html#req.query). This
+would allow someone to look up a house in the database by any property of the
+document. For example:
+
+- `/house?mascot=lion`
+- `/house?houseGhost=The Grey Lady`
+- `/house?headOfHouse=Severus Snape`
+
+### `ref`
+
+Rather than nesting the `Character` model in `House` as a subdocument, use the
+model to create a `character` collection and `house` collection. Seed the data
+into the two collections and then relate the two with a `ref`. That would mean
+that your `members` property of a house would be an array of ObjectIDs from the
+characters collection.
+
+Check out [the documentation](https://mongoosejs.com/docs/populate.html) on how
+to do this.
+
 ## [License](LICENSE)
 
 1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
