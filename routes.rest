@@ -1,0 +1,19 @@
+POST http://localhost:9000/house
+Content-Type: application/json
+
+{
+    "_id": "5a05e2b252f721a3cf2ea33f",
+    "name": "Gryffindor",
+    "mascot": "lion",
+    "headOfHouse": "Minerva McGonagall",
+    "houseGhost": "Nearly Headless Nick",
+    "founder": "Goderic Gryffindor",
+    "__v": 0,
+    "school": "Hogwarts School of Witchcraft and Wizardry",
+    "members":[],
+    "values": ["courage"],
+    "colors": ["scarlet"]
+}
+
+###
+GET http://localhost:9000/
